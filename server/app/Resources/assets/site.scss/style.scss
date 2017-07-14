@@ -1,0 +1,187 @@
+$color-pro : #1b7edb;
+$color-customer : #009462;
+$color-font : #949494;
+$color-default: #3A6879;
+#home-section{
+  background-size: cover;
+  background-position: center center;
+}
+.nav{
+  i{
+    line-height: 35px;
+    font-size: 22px;
+  }
+  li{
+    position: relative;
+  }
+  .sous-menu{
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    padding-top: 9px;
+    z-index:10;
+    text-align: right;
+    width: 140px;
+
+    li{
+      color: #fff;
+      padding-top: 5px;
+    }
+    
+    .logout-menu{
+      position: relative;
+      padding-top: 10px;
+    }
+    .logout-menu::before{
+      position: absolute;
+      content: '';
+      top:5px;
+      left: 0px;
+      width: 120px;
+      height: 1px;
+      background-color: #fff;
+    }
+  }
+  li:hover .sous-menu, .sous-menu:hover{
+    display: block;
+  }
+}
+.sous-menu-container{
+  background-color: $color-default;
+  padding: 0 10px 10px;
+}
+.navbar-fixed-top .sous-menu{
+  padding-top: 10px;
+}
+.navbar-fixed-top .sous-menu-container{
+  background-color: $color-default;
+}
+
+.navbar-brand>.main-logo{
+  display: inline-block;
+  height: 40px;
+  margin-top: -6px;
+}
+
+.business .navbar-brand:after{
+  content: "business";
+  text-transform: uppercase;
+  display: inline;
+  font-size: 12px;
+  margin-left: -10px;;
+}
+
+.login_register{
+  //background-color: $color-pro;
+  background: -moz-linear-gradient(left,#009462 0,rgba(123,209,160,.9) 100%);
+  background: -webkit-gradient(linear,left top,right top,color-stop(0,#009462),color-stop(100%,rgba(123,209,160,.9)));
+  background: -webkit-linear-gradient(left,#009462 0,rgba(123,209,160,.9) 100%);
+  background: -o-linear-gradient(left,#009462 0,rgba(123,209,160,.9) 100%);
+  background: -ms-linear-gradient(left,#009462 0,rgba(123,209,160,.9) 100%);
+  background: linear-gradient(to right,#009462 0,rgba(123,209,160,.9) 100%);
+  .login, .register{
+    height: 100%;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    -webkit-box-align: center;
+
+    align-items: center;
+
+    form{
+      width: 600px;
+      padding: 50px;
+      display: block;
+      margin: 0 auto;
+      text-align: center;
+      border: 3px solid #fff;
+      border-radius: 20px;
+      color: #fff;
+
+      h1, p{
+        margin: 0 0 30px;
+      }
+
+      .row{
+        margin-top: 20px;
+
+        input[type=text], input[type=password], input[type=email]{
+          background: 0;
+          border: 0;
+          border-bottom: 1px solid #fff;
+          padding-left: 5px;
+          padding-bottom: 5px;
+        }
+      }
+    }
+  }
+}
+
+.profil, .edit, .settings, .categories{
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  height: calc(100vh - 152px);
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+
+  align-items: center;
+}
+.profil{
+
+  .inner{
+    margin: 0 auto;
+    h1{
+      margin: 0 0 40px;
+    }
+    span{
+      font-weight: bold;
+    }
+  }
+}
+.edit, .settings, .categories{
+  a{
+    color: $color-default;
+  }
+
+  form{
+    margin: 0 auto;
+
+    h1{
+      margin: 0 0 40px;
+    }
+    .btn-animated{
+      color: $color-default;
+      border-color: $color-default;
+    }
+    .row{
+      margin: 20px 0;
+    }
+    label{
+      text-align: right;
+    }
+    input[type=text], input[type=password], input[type=email]{
+      background: 0;
+      border: 0;
+      border-bottom: 1px solid $color-default;
+      padding-left: 5px;
+      /*padding-bottom: 5px;*/
+    }
+    input[type=submit],a.btn-primary{
+      margin-top: 40px;
+    }
+  }
+}
+
+.container img[src$='#width']{
+  width : 100%;
+}

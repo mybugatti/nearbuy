@@ -1,0 +1,14 @@
+nearbuy_site:
+    prefix:   /
+    resource: "@NearBuySiteBundle/Resources/config/routing.yml"
+
+nearbuy_api:
+    prefix: /api
+    resource: "@NearBuyApiBundle/Resources/config/routing.yml"
+
+fos_oauth_server_token:
+    resource: "@FOSOAuthServerBundle/Resources/config/routing/token.xml"
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+

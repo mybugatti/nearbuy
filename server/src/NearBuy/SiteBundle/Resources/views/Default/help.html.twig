@@ -1,0 +1,9 @@
+{% extends "NearBuySiteBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="padding">
+        <div class="container">
+            {{ source("@contents/help.fr.md")|markdown }}
+        </div>
+    </div>
+{% endblock content %}

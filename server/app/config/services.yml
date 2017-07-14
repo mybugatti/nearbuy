@@ -1,0 +1,14 @@
+# Learn more about services, parameters and containers at
+# http://symfony.com/doc/current/service_container.html
+parameters:
+#    parameter_name: value
+
+services:
+    twig.extension.text:
+        class: Falc\Twig\Extension\TextExtension
+        tags:
+            - { name: twig.extension }
+
+imports:
+    - { resource: "@NearBuyApiBundle/Resources/config/services.yml" }
+    - { resource: "@NearBuySiteBundle/Resources/config/services.yml" }

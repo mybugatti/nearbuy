@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Documentation</title>
+
+    <style>
+        nav{
+            background: #f4f5f6;
+            border-bottom: .1rem solid #d1d1d1;
+            display: block;
+            height: 4rem;
+            left: 0;
+            max-width: 100%;
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 100%;
+            z-index: 1;
+        }
+        nav a{
+            line-height: 4rem;
+            margin-right: 1rem;
+        }
+        main{
+            margin-top: 6rem;
+        }
+    </style>
+    <!-- Google Fonts -->
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:300,300italic,700,700italic">
+
+    <!-- CSS Reset -->
+    <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+
+    <!-- Milligram CSS minified -->
+    <link rel="stylesheet" href="//cdn.rawgit.com/milligram/milligram/master/dist/milligram.min.css">
+</head>
+<body>
+<nav>
+    <div class="container">
+        <a href="{{ path("_profiler_home") }}">Profiler</a>
+        <a href="{{ path("jms_translation_index") }}">Traductions</a>
+        <a href="{{ path("nelmio_api_doc_index") }}">Documentation API</a>
+    </div>
+</nav>
+<main>
+    <div class="container">
+        {{ source("@contents/documentation.fr.md")|markdown }}
+    </div>
+</main>
+</body>

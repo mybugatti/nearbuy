@@ -1,0 +1,22 @@
+{% extends "NearBuySiteBundle::account_layout.html.twig" %}
+
+{% block content %}
+    <div class="edit">
+        {{ form_start(form, { 'action': path('nearbuy_site_account_delete'), 'attr': { 'class': 'fos_user_profile_delete' } }) }}
+        <h1>Suppression du compte</h1>
+
+        <div class="row">
+            {{ form_label(form.current_password, null,  { 'label_attr': {'class': 'col-sm-6'} }) }}
+            {{ form_errors(form.current_password) }}
+            {{ form_widget(form.current_password, { 'attr': {'class': 'col-sm-6'} }) }}
+        </div>
+
+        <div class="row">
+            <input class="btn btn-primary btn-animated" type="submit" value="{{ 'profile.delete.submit'|trans }}" />
+        </div>
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+

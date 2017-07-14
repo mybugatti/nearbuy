@@ -1,0 +1,102 @@
+services:
+    api.form.type.category:
+        class: NearBuy\ApiBundle\Form\CategoryType
+        arguments: ["@doctrine.orm.entity_manager",""]
+        tags:
+            - { name: form.type, alias: api_category_type }
+
+    api.form.type.currency:
+        class: NearBuy\ApiBundle\Form\CurrencyType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_currency_type }
+
+    api.form.type.diffusion:
+        class: NearBuy\ApiBundle\Form\DiffusionType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_diffusion_type }
+
+    api.form.type.diffusionlocal:
+        class: NearBuy\ApiBundle\Form\DiffusionLocalType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_diffusion_local_type }
+
+    api.form.type.entreprise:
+        class: NearBuy\ApiBundle\Form\EntrepriseType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_entreprise_type }
+
+    api.form.type.entreprisecategory:
+        class: NearBuy\ApiBundle\Form\EntrepriseCategoryType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_entreprise_category_type }
+
+    api.form.type.entreprisedescription:
+        class: NearBuy\ApiBundle\Form\EntrepriseDescriptionType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_entreprise_description_type }
+
+    api.form.type.local:
+        class: NearBuy\ApiBundle\Form\LocalType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_local_type }
+
+    api.form.type.promotion:
+        class: NearBuy\ApiBundle\Form\PromotionType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_promotion_type }
+
+    api.form.type.reduction:
+        class: NearBuy\ApiBundle\Form\ReductionType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_reduction_type }
+
+    api.form.type.employment:
+        class: NearBuy\ApiBundle\Form\EmploymentType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_employment_type }
+
+    api.form.type.settings:
+        class: NearBuy\ApiBundle\Form\SettingsType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_settings_type }
+
+    api.form.type.user:
+        class: NearBuy\ApiBundle\Form\UserType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_user_type }
+
+    api.form.type.userdescription:
+        class: NearBuy\ApiBundle\Form\UserDescriptionType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: api_user_description_type }
+
+    api.form.type.account:
+        class: NearBuy\ApiBundle\Form\AccountType
+        arguments: ["@doctrine.orm.entity_manager","fos_user.model.user.class"]
+        tags:
+            - { name: form.type, alias: api_account_type }
+
+    api.util.userauthorization:
+        class: NearBuy\ApiBundle\Util\UserAuthorization
+        arguments: ["@doctrine.orm.entity_manager"]
+# can't pass "@security.token_storage" tokens empty (deals with priority)
+
+    api.security.voter.promotion:
+        class: NearBuy\ApiBundle\Security\PromotionVoter
+        arguments: ["@api.util.userauthorization"]
+        tags:
+            - { name: security.voter }
+        public: false

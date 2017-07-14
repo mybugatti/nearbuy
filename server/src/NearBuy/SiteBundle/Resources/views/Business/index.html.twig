@@ -1,0 +1,24 @@
+{% extends "NearBuySiteBundle::layout_business.html.twig" %}
+
+{% block nav %}
+    {% include('NearBuySiteBundle:Business:partials/nav.html.twig') %}
+{% endblock %}
+
+{% block content %}
+
+    {% include('NearBuySiteBundle:Business:partials/about.html.twig') %}
+
+    {% include 'NearBuySiteBundle:Common:video.html.twig' %}
+
+    {% include 'NearBuySiteBundle:Business:partials/functionalities.html.twig' %}
+
+    {% include 'NearBuySiteBundle:Business:partials/tarif.html.twig' %}
+
+    {% include 'NearBuySiteBundle:Business:partials/testimonials.html.twig' %}
+
+    {% include 'NearBuySiteBundle:Common:download.html.twig' %}
+
+    {% include 'NearBuySiteBundle:Common:contact.html.twig' %}
+
+
+{% endblock %}

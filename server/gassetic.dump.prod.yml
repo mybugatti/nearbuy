@@ -1,0 +1,18 @@
+- mimetype: css
+  htmlTag: '<link rel="stylesheet" type="text/css" href="{{ asset("%path%") }}">'
+  files:
+    site.css:
+      - /assets/site.css/site.css
+- mimetype: img
+  htmlTag: <!-- htmlTag not provided -->
+  files:
+    site.img: []
+- mimetype: fav
+  htmlTag: <!-- htmlTag not provided -->
+  files:
+    site.fav: []
+- mimetype: js
+  htmlTag: <script src="%path%"></script>
+  files:
+    site.js:
+      - /assets/site.js/site.js

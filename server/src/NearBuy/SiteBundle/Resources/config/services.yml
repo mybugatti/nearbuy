@@ -1,0 +1,19 @@
+services:
+    site.form.type.account:
+        class: NearBuy\SiteBundle\Form\AccountType
+        arguments: ["@doctrine.orm.entity_manager","fos_user.model.user.class"]
+        tags:
+            - { name: form.type, alias: site_account_type }
+
+    site.form.type.security:
+        class: NearBuy\SiteBundle\Form\SecurityType
+        arguments: []
+        tags:
+            - { name: form.type, alias: site_security_type }
+
+    site.form.type.settings:
+        class: NearBuy\SiteBundle\Form\SettingsType
+        arguments: ["@doctrine.orm.entity_manager"]
+        tags:
+            - { name: form.type, alias: site_settings_type }
+

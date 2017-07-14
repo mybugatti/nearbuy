@@ -1,0 +1,27 @@
+{% extends "NearBuySiteBundle::account_layout.html.twig" %}
+
+{% block content %}
+    <div class="settings">
+        {{ form_start(form, { 'action': path('nearbuy_site_account_settings')}) }}
+        <h1>Paramètres</h1>
+        <div class="row">
+            {{ form_label(form.notifications, null,  { 'label_attr': {'class': 'col-sm-6'} }) }}
+            {{ form_errors(form.notifications) }}
+            {{ form_widget(form.notifications, { 'attr': {'class': 'col-sm-6'} }) }}
+        </div>
+        <div class="row">
+            {{ form_label(form.mails, null,  { 'label_attr': {'class': 'col-sm-6'} }) }}
+            {{ form_errors(form.mails) }}
+            {{ form_widget(form.mails, { 'attr': {'class': 'col-sm-6'} }) }}
+        </div>
+        <div class="row">
+            <a href="{{ path("nearbuy_site_account_delete") }}">{{ 'profile.settings.delete'|trans }}</a>
+        </div>
+
+        <input class="btn btn-primary btn-animated" type="submit" value="{{ 'profile.settings.submit'|trans }}" />
+
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+

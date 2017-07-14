@@ -1,0 +1,110 @@
+requires:
+  sass: gulp-sass
+  minify: gulp-minify-css
+  concat: gulp-concat
+  uglify: gulp-uglify
+  livereload: gulp-livereload
+
+mimetypes:
+  css:
+    dev:
+      outputFolder: web/assets
+      webPath: /assets
+      tasks:
+        - { name: sass }
+        - { name: minify }
+        - { name: concat, args: '%filename%' }
+        - { name: livereload, args: { start: true } }
+      htmlTag: '<link rel="stylesheet" type="text/css" href="{{ asset("%path%") }}">'
+
+    prod:
+      outputFolder: web/assets
+      webPath: /assets
+      tasks:
+        - { name: sass }
+        - { name: minify }
+        - { name: concat, args: '%filename%' }
+        - { name: livereload, args: { start: true } }
+      htmlTag: '<link rel="stylesheet" type="text/css" href="{{ asset("%path%") }}">'
+
+    files:
+      site.css:
+        - app/Resources/assets/site.scss/style.scss
+        - app/Resources/assets/site.css/animate.css
+        - app/Resources/assets/site.css/main.css
+        - app/Resources/assets/site.css/responsive.css
+
+    watch:
+      - app/Resources/assets/**/*.scss
+      - app/Resources/assets/**/*.css
+
+
+  js:
+    dev:
+      outputFolder: web/assets
+      webPath: /assets
+      tasks:
+        - { name: concat, args: '%filename%' }
+        - { name: uglify, args: { mangle: false } }
+
+    prod:
+      outputFolder: web/assets
+      webPath: /assets
+      tasks:
+        - { name: concat, args: '%filename%' }
+        - { name: uglify, args: { mangle: false } }
+
+    files:
+      site.js:
+        - app/Resources/assets/site.js/jquery.nav.js
+        - app/Resources/assets/site.js/main.js
+
+
+    watch:
+      - app/Resources/assets/**/*.js
+  img:
+    dev:
+      outputFolder: web/assets
+      tasks: [ ]
+      autoRenaming: false
+
+    prod:
+      outputFolder: web/assets
+      tasks: []
+      autoRenaming: false
+
+    files:
+      site.img:
+        - app/Resources/assets/site.img/*
+        - app/Resources/assets/site.img/**/*
+
+    watch:
+      - app/Resources/assets/**/*.jpg
+      - app/Resources/assets/**/*.png
+
+  fav:
+      dev:
+        outputFolder: web/assets
+        tasks: [ ]
+        autoRenaming: false
+
+      prod:
+        outputFolder: web/assets
+        tasks: []
+        autoRenaming: false
+
+      files:
+        site.fav:
+          - app/Resources/assets/site.fav/*
+          - app/Resources/assets/site.fav/**/*
+
+
+
+replacementPaths:
+  - src/NearBuy/SiteBundle/Resources/views/**/*.html.twig
+
+default:
+  - css
+  - img
+  - fav
+  - js

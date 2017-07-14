@@ -1,0 +1,61 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,500,700' rel='stylesheet' type='text/css'>
+
+    {% if app.environment == 'prod' %}
+        <!-- prod:site.css -->
+          <link rel="stylesheet" type="text/css" href="{{ asset("/assets/site.css/site.css") }}">
+        <!-- endbuild -->
+    {% else %}
+        <!-- prod:site.css -->
+          <link rel="stylesheet" type="text/css" href="{{ asset("/assets/site.css/site.css") }}">
+        <!-- endbuild -->
+    {% endif %}
+</head>
+<body>
+<header id="navigation">
+    <div class="navbar" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/">
+                    <img class="main-logo img-responsive" src="{{ asset("assets/site.img/logo_horizontal_white.svg") }}" alt="">
+                </a>
+
+            </div>
+            <nav id="mainmenu" class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    {% block nav %}
+                    {% endblock %}
+                    {% include 'NearBuySiteBundle:Account:menu.html.twig' %}
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header>
+{% block content %}
+{% endblock %}
+<footer id="footer">
+    <div class="overlay-bg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <p>© Copyright 2017 <a href="#">NearBuy</a>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

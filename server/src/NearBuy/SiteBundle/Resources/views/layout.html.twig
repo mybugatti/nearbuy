@@ -1,0 +1,108 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/fontawesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--Google Fonts-->
+    <link href='https://fonts.googleapis.com/css?family=Roboto+Condensed:300,400,700' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,500,700' rel='stylesheet' type='text/css'>
+
+    <!--Favicons-->
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/site.fav/default/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="/assets/site.fav/default/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/assets/site.fav/default/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/assets/site.fav/default/manifest.json">
+    <link rel="mask-icon" href="/assets/site.fav/default/safari-pinned-tab.svg" color="#009462">
+    <link rel="shortcut icon" href="/assets/site.fav/default/favicon.ico">
+    <meta name="apple-mobile-web-app-title" content="NearBuy">
+    <meta name="application-name" content="NearBuy">
+    <meta name="msapplication-config" content="/assets/site.fav/default/browserconfig.xml">
+    <meta name="theme-color" content="#009462">
+
+
+    {% if app.environment == 'prod' %}
+        <!-- prod:site.css -->
+          <link rel="stylesheet" type="text/css" href="{{ asset("/assets/site.css/site.css") }}">
+        <!-- endbuild -->
+    {% else %}
+        <!-- prod:site.css -->
+          <link rel="stylesheet" type="text/css" href="{{ asset("/assets/site.css/site.css") }}">
+        <!-- endbuild -->
+    {% endif %}
+</head>
+<body>
+<div id="home-section" class="image-bg">
+    <div class="container">
+        <div class="home-content padding">
+            <img class="img-responsive" src="{{ asset("assets/site.img/logo_slider.svg") }}" alt="" />
+            <h2>Allez plus loin dans le shopping</h2>
+
+        </div>
+    </div>
+</div><!--/#home-section-->
+
+<header id="navigation">
+    <div class="navbar" role="banner">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="{{ path("nearbuy_site_default_index") }}">
+                    <img class="main-logo img-responsive" src="{{ asset("assets/site.img/logo_horizontal_white.svg") }}" alt="">
+                </a>
+
+            </div>
+            <nav id="mainmenu" class="collapse navbar-collapse navbar-right">
+                <ul class="nav navbar-nav">
+                    {% block nav %}
+                        {% include('NearBuySiteBundle:Default:partials/nav.html.twig') %}
+                    {% endblock %}
+                    <li><a href="{{ path("nearbuy_site_default_help") }}" class="ignore">Aide</a></li>
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                        {% include 'NearBuySiteBundle:Account:menu.html.twig' %}
+                    {% else %}
+                        <li><a href="{{ path("nearbuy_site_default_register") }}" class="ignore">S'inscire</a></li>
+                        <li><a href="{{ path("nearbuy_site_default_login") }}" class="ignore">Se connecter</a></li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+        </div>
+    </div>
+</header><!--/#navigation-->
+
+{% block content %}
+{% endblock %}
+
+<footer id="footer">
+    <div class="overlay-bg"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-7">
+                <p>© Copyright 2017 <a href="#">NearBuy</a>.</p>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/1.11.0/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/wow/1.1.2/wow.min.js"></script>
+{% if app.environment == 'prod' %}
+    <!-- prod:site.js -->
+      <script src="/assets/site.js/site.js"></script>
+    <!-- endbuild -->
+{% else %}
+    <!-- prod:site.js -->
+      <script src="/assets/site.js/site.js"></script>
+    <!-- endbuild -->
+{% endif %}
+</body>
+</html>

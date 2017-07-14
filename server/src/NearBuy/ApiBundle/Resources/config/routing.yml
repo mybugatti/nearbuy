@@ -1,0 +1,35 @@
+nearbuy_api_user:
+    resource: "@NearBuyApiBundle/Controller/UserController.php"
+    type:     rest
+
+nearbuy_api_reduction:
+    resource: "@NearBuyApiBundle/Controller/ReductionController.php"
+    type:     rest
+
+nearbuy_api_promotion:
+    resource: "@NearBuyApiBundle/Controller/PromotionController.php"
+    type:     rest
+
+nearbuy_api_local:
+    resource: "@NearBuyApiBundle/Controller/LocalController.php"
+    type:     rest
+
+nearbuy_api_entreprise:
+    resource: "@NearBuyApiBundle/Controller/EntrepriseController.php"
+    type:     rest
+
+nearbuy_api_diffusion:
+    resource: "@NearBuyApiBundle/Controller/DiffusionController.php"
+    type:     rest
+
+nearbuy_api_currency:
+    resource: "@NearBuyApiBundle/Controller/CurrencyController.php"
+    type:     rest
+
+nearbuy_api_category:
+    resource: "@NearBuyApiBundle/Controller/CategoryController.php"
+    type:     rest
+
+nearbuy_api_account:
+    resource: "@NearBuyApiBundle/Controller/AccountController.php"
+    type:     rest

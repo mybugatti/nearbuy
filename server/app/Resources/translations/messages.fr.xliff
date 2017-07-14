@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" xmlns:jms="urn:jms:translation" version="1.2">
+  <file date="2017-02-24T18:11:37Z" source-language="en" target-language="fr" datatype="plaintext" original="not.available">
+    <header>
+      <tool tool-id="JMSTranslationBundle" tool-name="JMSTranslationBundle" tool-version="1.1.0-DEV"/>
+      <note>The source node in most cases contains the sample message as written by the developer. If it looks like a dot-delimitted string such as "form.label.firstname", then the developer has not provided a default message.</note>
+    </header>
+    <body>
+      <trans-unit id="3f2cc3374b2d350c2608a2bc6ee63903da6fbb8e" resname="profile.categories.return">
+        <source>profile.categories.return</source>
+        <target>Retour au profil</target>
+        <jms:reference-file line="15">/../src/NearBuy/SiteBundle/Resources/views/Account/categories.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="bcf621823a6003e4f1e1e88999046ba8a9e38ece" resname="profile.categories.submit">
+        <source>profile.categories.submit</source>
+        <target>Modifier</target>
+        <jms:reference-file line="16">/../src/NearBuy/SiteBundle/Resources/views/Account/categories.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="77cd5fe0c6893186ce303c2c9e976ed9d9cf6b94" resname="profile.change_password.submit">
+        <source>profile.change_password.submit</source>
+        <target>Modifier</target>
+        <jms:reference-file line="24">/../src/NearBuy/SiteBundle/Resources/views/Account/change_password.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6497f32b65f1d1cddd109c288b6abc8239dc7ceb" resname="profile.delete.submit">
+        <source>profile.delete.submit</source>
+        <target>Je confirme vouloir supprimer mon compte</target>
+        <jms:reference-file line="15">/../src/NearBuy/SiteBundle/Resources/views/Account/delete.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="111d94d18a9fde98f8a632cd49ce44256e0396e6" resname="profile.edit.change_password">
+        <source>profile.edit.change_password</source>
+        <target>Modification du mot de passe</target>
+        <jms:reference-file line="25">/../src/NearBuy/SiteBundle/Resources/views/Account/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="9741ffbcf8dbb31e1a2d32bd25cb0ccc5a6dea54" resname="profile.edit.submit">
+        <source>profile.edit.submit</source>
+        <target>Modifier</target>
+        <jms:reference-file line="26">/../src/NearBuy/SiteBundle/Resources/views/Account/edit.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="2aefa1cbc24c8354bd0c47992e98a88b850a6b5e" resname="profile.settings.delete">
+        <source>profile.settings.delete</source>
+        <target>supprimer mon compte ...</target>
+        <jms:reference-file line="18">/../src/NearBuy/SiteBundle/Resources/views/Account/settings.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4cea66687fe2e67c9eb7cfdfe8121ed78994de3d" resname="profile.settings.submit">
+        <source>profile.settings.submit</source>
+        <target>Modifier mes paramètres</target>
+        <jms:reference-file line="21">/../src/NearBuy/SiteBundle/Resources/views/Account/settings.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="6f2b87ab0da336a9cb633f397ff7f86ab7ea522b" resname="profile.show.email">
+        <source>profile.show.email</source>
+        <target>Email</target>
+        <jms:reference-file line="9">/../src/NearBuy/SiteBundle/Resources/views/Account/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="0d6307def2ec4ecb26978118bb2deca9d566945c" resname="profile.show.username">
+        <source>profile.show.username</source>
+        <target>Nom d'utilisateur</target>
+        <jms:reference-file line="8">/../src/NearBuy/SiteBundle/Resources/views/Account/show.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="4ef79d57e94b4b74349d6533a231e09dc5be0ce2" resname="registration.submit">
+        <source>registration.submit</source>
+        <target>S'inscrire</target>
+        <jms:reference-file line="28">/../src/NearBuy/SiteBundle/Resources/views/Account/register.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="62d5564c383b885ff0de25abd24a41080499970b" resname="security.login.password">
+        <source>security.login.password</source>
+        <target>Mot de passe</target>
+        <jms:reference-file line="20">/../src/NearBuy/SiteBundle/Resources/views/Account/login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="d074ed9a0eb75b7f17ef2274c21d4c3d12d91634" resname="security.login.remember_me">
+        <source>security.login.remember_me</source>
+        <target>Se souvenir de moi...</target>
+        <jms:reference-file line="26">/../src/NearBuy/SiteBundle/Resources/views/Account/login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="79c180ac5e987e195d1dfeda857a114ed692d07f" resname="security.login.submit">
+        <source>security.login.submit</source>
+        <target>Connexion</target>
+        <jms:reference-file line="30">/../src/NearBuy/SiteBundle/Resources/views/Account/login.html.twig</jms:reference-file>
+      </trans-unit>
+      <trans-unit id="64e1b2aaf6156a7e34a13fbc38801e89478efff8" resname="security.login.username">
+        <source>security.login.username</source>
+        <target>Nom d'utilisateur</target>
+        <jms:reference-file line="15">/../src/NearBuy/SiteBundle/Resources/views/Account/login.html.twig</jms:reference-file>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

@@ -1,0 +1,19 @@
+nearbuy_site_login_check:
+    path: /login_check
+    methods: POST
+    defaults:  { _controller: FOSUserBundle:Security:check }
+
+nearbuy_site_default:
+    prefix:   /
+    resource: "@NearBuySiteBundle/Controller/DefaultController.php"
+    type:     annotation
+
+nearbuy_site_business:
+    prefix:   /business
+    resource: "@NearBuySiteBundle/Controller/BusinessController.php"
+    type:     annotation
+
+nearbuy_site_account:
+    prefix:   /account
+    resource: "@NearBuySiteBundle/Controller/AccountController.php"
+    type:     annotation

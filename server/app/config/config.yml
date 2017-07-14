@@ -1,0 +1,186 @@
+imports:
+    - { resource: parameters.yml }
+    - { resource: security.yml }
+    - { resource: services.yml }
+    - { resource: "@NearBuySiteBundle/Resources/config/services.yml" }
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    jms_serializer.camel_case_naming_strategy.class: JMS\Serializer\Naming\IdenticalPropertyNamingStrategy
+
+framework:
+    #esi:             ~
+    translator:
+        fallbacks: ["%locale%"]
+        paths: ["%kernel.root_dir%/Resources/translations"]
+
+    secret:          "%secret%"
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: ~
+    form:            ~
+    csrf_protection: ~
+    validation:      { enable_annotations: true }
+    serializer:
+        enabled: false
+        enable_annotations: true
+    templating:
+        engines: ['twig']
+    default_locale:  "%locale%"
+    trusted_hosts:   ~
+    trusted_proxies: ~
+    session:
+        # http://symfony.com/doc/current/reference/configuration/framework.html#handler-id
+        handler_id:  session.handler.native_file
+        save_path:   "%kernel.root_dir%/../var/sessions/%kernel.environment%"
+    fragments:       ~
+    http_method_override: true
+    assets: ~
+
+# Twig Configuration
+twig:
+    debug:            "%kernel.debug%"
+    strict_variables: "%kernel.debug%"
+    paths:
+        "%kernel.root_dir%/Resources/contents": contents
+
+
+# Doctrine Configuration
+doctrine:
+    dbal:
+        driver:   pdo_mysql
+        host:     "%database_host%"
+        port:     "%database_port%"
+        dbname:   "%database_name%"
+        user:     "%database_user%"
+        password: "%database_password%"
+        charset:  UTF8
+        mapping_types:
+            enum: string
+        types:
+            point: CrEOF\Spatial\DBAL\Types\Geometry\PointType
+            ReductionType: NearBuy\DataBundle\Type\ReductionType
+            ValidationType: NearBuy\DataBundle\Type\ValidationType
+            EmploymentRoleType: NearBuy\DataBundle\Type\EmploymentRoleType
+
+        # if using pdo_sqlite as your database driver:
+        #   1. add the path in parameters.yml
+        #     e.g. database_path: "%kernel.root_dir%/data/data.db3"
+        #   2. Uncomment database_path in parameters.yml.dist
+        #   3. Uncomment next line:
+        #     path:     "%database_path%"
+
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        naming_strategy: doctrine.orm.naming_strategy.underscore
+        auto_mapping: true
+        dql:
+          numeric_functions:
+            point: CrEOF\Spatial\ORM\Query\AST\Functions\MySql\Point
+
+
+# Swiftmailer Configuration
+swiftmailer:
+    transport: "%mailer_transport%"
+    host:      "%mailer_host%"
+    username:  "%mailer_user%"
+    password:  "%mailer_password%"
+    spool:     { type: memory }
+
+# FOSUserBundle Configuration
+fos_user:
+    db_driver: orm
+    firewall_name: api
+    user_class: NearBuy\DataBundle\Entity\User
+    registration:
+        form:
+            type: NearBuy\SiteBundle\Form\AccountType
+    from_email:
+        address: root@gmail.com
+        sender_name: root
+
+# FOSRestBundle Configuration
+fos_rest:
+    param_fetcher_listener: true
+    body_listener: true
+    format_listener: true
+    serializer:
+        serialize_null:  true
+    view:
+        empty_content: 204
+        view_response_listener: 'force'
+        formats:
+            xml: true
+            json : true
+        templating_formats:
+            html: true
+        force_redirects:
+            html: true
+        failed_validation: HTTP_BAD_REQUEST
+        default_engine: twig
+    routing_loader:
+        default_format: json
+
+# FOSOAuthServerBundle Configuration
+fos_oauth_server:
+    db_driver:           orm
+    client_class:        NearBuy\ApiBundle\Entity\Client
+    access_token_class:  NearBuy\ApiBundle\Entity\AccessToken
+    refresh_token_class: NearBuy\ApiBundle\Entity\RefreshToken
+    auth_code_class:     NearBuy\ApiBundle\Entity\AuthCode
+    service:
+        user_provider: fos_user.user_provider.username_email             # This property will be used when valid credentials are given to load the user upon access token creation
+
+# NelmioApiDocBundle Configuration
+nelmio_api_doc: ~
+
+# JMSSerializerBundle Configuration
+jms_serializer:
+    handlers:
+        datetime:
+            default_format: "Y-m-d\\TH:i:sP"
+            default_timezone: "UTC"
+    property_naming:
+        separator:  _
+        lower_case: true
+
+# JMSTranslationBundle Configuration
+jms_translation:
+    configs:
+        site:
+            dirs: ["%kernel.root_dir%/../src/NearBuy/SiteBundle"]
+            output_dir: "%kernel.root_dir%/Resources/translations"
+            ignored_domains: [routes]
+            excluded_names: ["*TestCase.php", "*Test.php"]
+            excluded_dirs: [cache, data, logs]
+
+nelmio_cors:
+    defaults:
+        allow_credentials: false
+        allow_origin: []
+        allow_headers: []
+        allow_methods: []
+        expose_headers: []
+        max_age: 0
+        hosts: []
+        origin_regex: false
+        forced_allow_origin_value: ~
+    paths:
+        '^/api/':
+            allow_origin: ['*']
+            allow_headers: ['X-Custom-Auth','Authorization']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE', 'OPTIONS']
+            max_age: 3600
+        '^/oauth/':
+            allow_origin: ['*']
+            allow_headers: ['X-Custom-Auth']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+            max_age: 3600
+        '^/':
+            origin_regex: true
+            allow_origin: ['^http://localhost:[0-9]+']
+            allow_headers: ['X-Custom-Auth']
+            allow_methods: ['POST', 'PUT', 'GET', 'DELETE']
+            max_age: 3600
+            hosts: ['^api\.']

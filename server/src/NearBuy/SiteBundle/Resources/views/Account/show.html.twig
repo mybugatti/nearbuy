@@ -1,0 +1,13 @@
+{% extends "NearBuySiteBundle::account_layout.html.twig" %}
+
+{% block content %}
+    <div class="profil">
+        <div class="inner">
+            <h1>Mon profil</h1>
+            <div class="fos_user_user_show">
+                <p><span>{{ 'profile.show.username'|trans }}</span> : {{ user.username }}</p>
+                <p><span>{{ 'profile.show.email'|trans }}</span> : {{ user.email }}</p>
+            </div>
+        </div>
+    </div>
+{% endblock %}

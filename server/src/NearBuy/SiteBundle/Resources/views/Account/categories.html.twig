@@ -1,0 +1,22 @@
+{% extends "NearBuySiteBundle::account_layout.html.twig" %}
+
+{% block content %}
+    <div class="categories">
+        {{ form_start(form, { 'action': path('nearbuy_site_account_categories')}) }}
+        <h1>Categories</h1>
+            {% for field in form.children if field.vars.name != "_token" %}
+            <div class="row">
+                {{ form_label(field, null,  { 'label_attr': {'class': 'col-sm-6'} }) }}
+                {{ form_errors(field) }}
+                {{ form_widget(field, { 'attr': {'class': 'col-sm-6'} }) }}
+            </div>
+            {% endfor %}
+            <div class="row">
+                <a class="btn btn-primary btn-animated" href="{{ path("nearbuy_site_account_show") }}">{{ 'profile.categories.return'|trans }}</a>
+                <input class="btn btn-primary btn-animated" type="submit" value="{{ 'profile.categories.submit'|trans }}" />
+            </div>
+        {{ form_end(form) }}
+    </div>
+{% endblock %}
+
+

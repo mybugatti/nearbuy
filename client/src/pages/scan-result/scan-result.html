@@ -1,0 +1,27 @@
+<ion-header>
+
+  <ion-toolbar>
+    <ion-navbar>
+      <ion-title>Scan Result</ion-title>
+    </ion-navbar>
+    <ion-buttons end>
+      <button ion-button (click)="close()">
+        <span ion-text color="primary" showWhen="ios">Annuler</span>
+        <ion-icon name="md-close" showWhen="android,windows"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row>
+    <ion-col width-100>
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col width-100>
+      <h2 class="Scan-resultUser">{{scannedText}}</h2>
+    </ion-col>
+  </ion-row>
+</ion-content>

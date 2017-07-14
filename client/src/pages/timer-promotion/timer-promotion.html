@@ -1,0 +1,15 @@
+<!--
+  Generated template for the TimerPromotion page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+
+<div [class.timer]="timer" *ngIf="timer">
+  <p *ngIf="timeInSeconds && timeInSeconds > 0">{{timer.displayTime}}</p>
+  <p *ngIf="timeInSeconds && timeInSeconds > 0">
+    <span  *ngIf="!timer.runTimer && (timer.hasStarted || timer.hasFinished) || timer.hasFinished">
+      Fin de la promotion
+    </span>
+  </p>
+</div>

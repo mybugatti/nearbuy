@@ -1,0 +1,6 @@
+[submodule "src/app/services"]
+	path = src/app/services
+	url = git@bitbucket.org:nearbuyapp/nearbuy_services.git
+[submodule "nearbuy_services"]
+	path = nearbuy_services
+	url = git@bitbucket.org:nearbuyapp/nearbuy_services.git

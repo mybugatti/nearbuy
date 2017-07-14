@@ -1,0 +1,75 @@
+page-inscription {
+
+  .toolbar-background-md,.toolbar-background-ios {
+    border-color: map_get($colors, font);
+    background: map_get($colors, font);
+  }
+  .icon-left {
+    text-align: right;
+    margin-top: 20px;
+  }
+  ion-item.item.item-block.item-md.item-select,
+  ion-item.item.item-block.item-ios.item-select{
+    margin-top: 20px;
+  }
+  .select-text {
+    color: white;
+    font-weight: 400;
+    font-size: 19px;
+  }
+
+  .header-title-inscription {
+    padding: 0px 0px 0px 16px;
+    margin-top: 20px;
+    h1 {
+      font-family: 'Roboto', sans-serif;
+      color: white;
+      letter-spacing: 1px;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 34px;
+    }
+  }
+
+
+  /* background color */
+  .content-md, .content-ios {
+    background-color: map_get($colors, font);
+  }
+
+  .item-ios,.item-md {
+    /* background-color: map_get($colors, font); */
+    background-color: transparent;
+    margin-bottom: 6px;
+  }
+  .header-ios .toolbar-background-ios, .footer-ios .toolbar-background-ios{
+    border-color:map_get($colors, font);
+  }
+
+  .header-md::after, .header-ios::after {
+    background-image:none
+  }
+  .bar-button-default-md, .bar-button-default-ios{
+    color: #ffffff;
+  }
+  .toolbar-title-md, .toolbar-title-ios{
+    font-family: 'Roboto', sans-serif;
+    color: white;
+    letter-spacing: 1px;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+  }
+  .label-md, .label-ios, .item-input {
+    color: white !important;
+    letter-spacing: 2px;
+    font-size: 21px;
+  }
+  .scroll-content {
+    top: 0px;
+    display: flex;
+    flex-direction: column;
+  }
+
+
+}

@@ -1,0 +1,73 @@
+page-enterprise {
+
+  .header-image {
+    background-image: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950);
+    height: 40vh;
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+    margin-top: -10px;
+  }
+
+  .main-content {
+    box-shadow: 0px -1px 13px 1px rgba(0,0,0,0.3);
+    padding: 20px;
+    background-color: white;
+  }
+
+  .toolbar-md-secondary .toolbar-background-md,
+  .toolbar-ios-secondary .toolbar-background-ios{
+    background: #36687b;
+    opacity: 0.4;
+    box-shadow: 0px 1px 13px 1px rgba(0,0,0,0.77);
+    filter: blur(8px);
+  }
+
+  .main-content p {
+    color: #697072;
+    text-align: left;
+  }
+
+  .main-content ion-icon {
+    color: map_get($colors, font);
+    width: 20px;
+  }
+
+  .md,
+  .ios,
+  .wp {
+    .main-content [text-right] {
+      margin-right: 0;
+    }
+  }
+
+  section > h4 {
+    display: inline-block;
+  }
+
+  .bar-buttons-md[end], .bar-buttons-ios[end] {
+    float: right;
+    display: inline-block;
+  }
+
+  .button-md, .button-ios {
+    font-size: 1.74rem;
+    color: #36687b;
+    background-color: #ffffff;
+    box-shadow:none;
+  }
+
+  .item-md {
+    padding-left: 0px;
+  }
+  .item-md ion-icon[item-left] + .item-inner, .item-md ion-icon[item-left] + .item-input,
+  .item-ios ion-icon[item-left] + .item-inner, .item-ios ion-icon[item-left] + .item-input {
+    margin-left: 0px;
+  }
+
+  .main-content p {
+    display: inline;
+  }
+
+
+  }

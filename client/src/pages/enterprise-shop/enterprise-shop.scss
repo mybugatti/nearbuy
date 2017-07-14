@@ -1,0 +1,64 @@
+$background-color: #3c353c;
+
+page-enterprise-shop {
+
+  .header-image {
+    background-image: url(https://ununsplash.imgix.net/photo-1421091242698-34f6ad7fc088?fit=crop&fm=jpg&h=650&q=75&w=950);
+    height: 40vh;
+    background-size: contain !important;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+
+  .main-content {
+    box-shadow: 0px -1px 13px 1px rgba(0,0,0,0.3);
+    padding: 20px;
+    background-color: white;
+  }
+
+  .scroll-content {
+    padding-top: 0 !important;
+  }
+
+  ion-header .header .header-md{
+    filter: blur(8px);
+  }
+
+  .toolbar-md-secondary .toolbar-background-md,
+  .toolbar-ios-secondary .toolbar-background-ios{
+    background: #36687b;
+    opacity: 0.4;
+    box-shadow: 0px 1px 13px 1px rgba(0,0,0,0.77);
+    filter: blur(8px);
+  }
+
+  ion-segment {
+    padding: 0px 12px;
+    opacity: 0.7;
+    position: relative;
+    top: -50px;
+  }
+
+  ion-segment-button {
+    border-color: map-get($colors, primary) !important;
+    color: #fff !important;
+  }
+
+  ion-card {
+    background-color: #fff;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 25px;
+    position: relative;
+    top: -30px;
+  }
+
+  ion-card:last-of-type {
+    margin-bottom: 0 !important;
+  }
+
+  ion-item {
+    background-color: #fff;
+  }
+
+}

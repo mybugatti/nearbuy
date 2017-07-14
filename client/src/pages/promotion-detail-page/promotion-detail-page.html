@@ -1,0 +1,55 @@
+<!--
+  Generated template for the PromotionDetailPage page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-navbar>
+    <ion-title></ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <!--<div #maps id="maps"></div>-->
+  <div [map]></div>
+
+  <ion-card>
+
+  <ion-fab right top>
+    <button ion-fab (click)="traceItineraryOnMaps()">
+      <ion-icon name="pin"></ion-icon>
+    </button>
+  </ion-fab>
+
+  <ion-card-header>
+    <!--<timer #timer [timeInSeconds]="date"></timer>-->
+    <ion-card-title>
+      <button ion-button clear item-right (click)="goToEnterprise(promotionDetail)">{{promotionDetail['dataPromotion']['entreprise'].name}}</button>
+    </ion-card-title>
+  </ion-card-header>
+
+    <ion-card-content>
+      <p>{{promotionDetail['dataPromotion'].description}}</p>
+      <p>{{promotionDetail['dataPromotion']['reduction'].value}}€</p>
+  </ion-card-content>
+
+  <ion-card-content>
+    <ion-item>
+      <span item-left *ngIf="min">{{min}}</span>
+      <span item-left *ngIf="distance">({{distance}})</span>
+      <button ion-button icon-left clear item-right (click)="traceItineraryOnMaps()">
+        <ion-icon name="navigate"></ion-icon>
+        Itinéraire
+      </button>
+    </ion-item>
+  </ion-card-content>
+
+  </ion-card>
+
+</ion-content>

@@ -1,0 +1,77 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Global Sass
+// --------------------------------------------------
+// Put style rules here that you want to apply globally. These
+// styles are for the entire app and not just one component.
+// Additionally, this file can be also used as an entry point
+// to import other Sass files to be included in the output CSS.
+//
+// Shared Sass variables, which can be used to adjust Ionic's
+// default Sass variables, belong in "theme/variables.scss".
+//
+// To declare rules for a specific mode, create a child rule
+// for the .md, .ios, or .wp mode classes. The mode class is
+// automatically applied to the <body> element in the app.
+
+.error-box {
+  font-size: 14px;
+  font-weight:400;
+  color: #de1717;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  background: transparent;
+  padding-left: 16px;
+}
+
+.invalide-box{
+  text-align: center;
+  letter-spacing: 0.5px;
+}
+
+/* */
+.button-md-light,
+.button-ios-light {
+  color: #444444;
+  background-color: #fafafa;
+}
+
+.toolbar-background-md,
+.toolbar-background-ios {
+  background: #36687b
+}
+
+.header-ios .toolbar-background-ios,
+.footer-ios .toolbar-background-ios,
+.header-md .toolbar-background-md {
+  border-color: #36687b;
+}
+
+.toolbar-title-md,
+.toolbar-title-ios {
+  text-align: center;
+  color: #ffffff;
+}
+
+p.infoWindow_home {
+  font-weight: 900;
+  color: #36687b;
+  font-size: 14px;
+}
+
+p.infoWindow_pin {
+  font-weight: 400;
+}
+
+p.infoWindow_calendar {
+  font-weight: 400;
+  font-family: "roboto-medium";
+}
+
+button.infoWindow_btn {
+  color: #36687b;
+  font-weight: 600;
+}
+
+

@@ -1,0 +1,157 @@
+<!--
+  Generated template for the Accueil page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header >
+  <button ion-button menuToggle>
+    <ion-icon name="menu"></ion-icon>
+  </button>
+</ion-header>
+
+<!-- google maps -->
+<ion-content class="map-page">
+  <!--<div #map id="map"></div>-->
+  <div [map]></div>
+</ion-content>
+
+
+<!-- footer plugin -->
+<ion-pullup #pullup (onExpand)="footerExpanded()" (onCollapse)="footerCollapsed()" [(state)]="footerState">
+  <ion-pullup-tab [footer]="pullup">
+    <ion-icon name="arrow-up" *ngIf="footerState == 0"></ion-icon><ion-icon name="arrow-down" *ngIf="footerState == 1"></ion-icon>
+  </ion-pullup-tab>
+  <ion-toolbar primary><!-- header footer -->
+    <ion-footer>
+      <ion-toolbar>
+        <ion-segment [(ngModel)]="promotion"><!-- debut content segment-->
+          <ion-segment-button value="news"><!-- segment news -->
+            Nouveaux
+          </ion-segment-button><!-- -->
+          <ion-segment-button value="popular" (click)="popularPromotion()"><!-- segment popular -->
+            Populaire
+          </ion-segment-button>
+          <ion-segment-button value="favorites"><!-- segment favorites -->
+            <ion-icon name="bookmark"></ion-icon>
+          </ion-segment-button>
+          <ion-segment-button value="filter"><!-- segment filter -->
+            <ion-icon name="funnel" (click)="presentFilter()"></ion-icon>
+          </ion-segment-button>
+        </ion-segment><!-- fin content segment-->
+      </ion-toolbar>
+    </ion-footer>
+  </ion-toolbar><!-- fin header footer -->
+
+  <ion-content><!-- content footer -->
+    <ion-refresher (ionRefresh)="doRefresh($event)"><!-- refresh content-->
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher><!-- -->
+    <div [ngSwitch]="promotion"><!-- content ngSwitch -->
+      <ion-list *ngSwitchCase="'news'"><!-- content news -->
+        <ion-item *ngFor="let promotionItem of promotionItems"><!-- TODO à implémenter => *ngFor="let promo of promotion"-->
+          <ion-avatar item-left><!-- avatar -->
+            <ion-badge item-right>{{promotionItem.maxDistance}}m</ion-badge><!-- TODO get latlong google maps-->
+            <img src="../assets/icon/logo.png">
+          </ion-avatar><!-- fin avatar-->
+          <ion-item-sliding #slidingItem><!-- sliding -->
+            <button ion-item (click)="goToPromotionDetail(promotionItem)">
+              <p>{{promotionItem['dataPromotion'].description}} </p>
+            </button>
+            <ion-item-options><!-- option -->
+              <button ion-button (click)="addFavorite(slidingItem,promotionItem)" *ngIf="promotion === 'news'">
+                <ion-icon name="bookmark" class="addfavorites"></ion-icon>
+              </button>
+            </ion-item-options><!-- option -->
+          </ion-item-sliding><!-- fin sliding -->
+          <button ion-button clear class="detail-user" (click)="goToEnterprise(promotionItem)">{{promotionItem['dataPromotion']['entreprise'].name}}</button>
+          <ion-badge item-right>{{promotionItem['dataPromotion']['reduction'].value}}€</ion-badge>
+          <ion-badge item-right class="btn-badge">
+            <button ion-button class="btn-favorite" (click)="addFavorite(slidingItem,promotionItem)" *ngIf="promotion === 'news'">
+              <ion-icon name="bookmark" class="addfavorites"></ion-icon>
+            </button>
+          </ion-badge>
+        </ion-item><!-- -->
+      </ion-list><!-- fin content news -->
+
+      <ion-list *ngSwitchCase="'popular'"><!-- content popular -->
+        <ion-item *ngFor="let promotionItem of popularitePromotion"><!-- TODO à implémenter => *ngFor="let promo of promotion"-->
+          <ion-avatar item-left><!-- avatar -->
+            <ion-badge item-right>{{promotionItem.maxDistance}}m</ion-badge><!-- TODO get latlong google maps-->
+            <img src="../assets/icon/logo.png">
+          </ion-avatar><!-- fin avatar-->
+          <ion-item-sliding #slidingItem><!-- sliding -->
+            <button ion-item (click)="goToPromotionDetail(promotionItem)">
+              <p>{{promotionItem['dataPromotion'].description}} </p>
+            </button>
+            <ion-item-options><!-- option -->
+              <button ion-button (click)="addFavorite(slidingItem,promotionItem)" *ngIf="promotion === 'popular'">
+                <ion-icon name="bookmark" class="addfavorites"></ion-icon>
+              </button>
+            </ion-item-options><!-- option -->
+          </ion-item-sliding><!-- fin sliding -->
+          <button ion-button clear class="detail-user" (click)="goToEnterprise(promotionItem)">{{promotionItem['dataPromotion']['entreprise'].name}}</button>
+          <ion-badge item-right>{{promotionItem['dataPromotion']['reduction'].value}}€</ion-badge>
+          <ion-badge item-right class="btn-badge">
+            <button ion-button class="btn-favorite" (click)="addFavorite(slidingItem,promotionItem)" *ngIf="promotion === 'popular'">
+              <ion-icon name="bookmark" class="addfavorites"></ion-icon>
+            </button>
+          </ion-badge>
+        </ion-item><!-- -->
+      </ion-list><!-- fin content popular -->
+
+      <ion-list *ngSwitchCase="'favorites'"><!-- content favorites -->
+        <ion-item *ngFor="let _favoritesItem of _favorites"><!-- TODO à implementer => *ngFor="let promo of promotion"-->
+          <ion-avatar item-left>
+            <ion-badge item-right>{{_favoritesItem.maxDistance}}m</ion-badge>
+            <img src="../assets/icon/logo.png">
+          </ion-avatar>
+          <ion-item-sliding #slidingItem><!-- sliding -->
+            <button ion-item (click)="goToPromotionDetail(_favoritesItem)">
+              <p>{{_favoritesItem['dataPromotion'].description}} </p>
+            </button>
+            <ion-item-options><!-- option -->
+              <button ion-button class="btn-remove" (click)="removeFavorite(slidingItem, _favoritesItem, 'Remove Favorite')" *ngIf="promotion === 'favorites'">
+                <ion-icon name="trash"></ion-icon>
+              </button>
+            </ion-item-options><!-- option -->
+          </ion-item-sliding><!-- fin sliding -->
+          <button ion-button clear class="detail-user" (click)="goToEnterprise(_favoritesItem)">{{_favoritesItem['dataPromotion']['entreprise'].name}}</button>
+          <ion-badge item-right>{{_favoritesItem['dataPromotion']['reduction'].value}}€</ion-badge>
+          <ion-badge item-right class="btn-badge">
+            <button ion-button class="btn-remove" (click)="removeFavorite(slidingItem, _favoritesItem, 'Remove Favorite')" *ngIf="promotion === 'favorites'">
+              <ion-icon name="trash" class=""></ion-icon>
+            </button>
+          </ion-badge>
+        </ion-item>
+      </ion-list><!-- fin favorites -->
+
+      <ion-list  #promotionList *ngSwitchCase="'filter'"><!-- content filter -->
+        <ion-item *ngFor="let _filterItem of filterResult"><!-- TODO à implementer => *ngFor="let promo of promotion"-->
+          <ion-avatar item-left><!-- avatar -->
+            <ion-badge item-right>{{_filterItem.maxDistance}}m</ion-badge><!-- TODO -->
+            <img src="../assets/icon/logo.png">
+          </ion-avatar><!-- fin avatar-->
+          <ion-item-sliding #slidingItem><!-- sliding -->
+            <button ion-item (click)="goToPromotionDetail(_filterItem)">
+              <p>{{_filterItem['dataPromotion'].description}} </p>
+            </button>
+            <ion-item-options><!-- option -->
+              <button ion-button (click)="addFavorite(slidingItem,_filterItem)">
+                <ion-icon name="bookmark" class="addfavorites"></ion-icon>
+              </button>
+            </ion-item-options><!-- option -->
+          </ion-item-sliding><!-- fin sliding -->
+          <button ion-button clear class="detail-user" (click)="goToEnterprise(_filterItem)">{{_filterItem['dataPromotion']['entreprise'].name}}</button>
+          <ion-badge item-right>{{_filterItem['dataPromotion']['reduction'].value}}€</ion-badge>
+          <ion-badge item-right class="btn-badge">
+            <button ion-button class="btn-favorite" (click)="addFavorite(slidingItem,_filterItem)" *ngIf="promotion === 'filter'">
+              <ion-icon name="bookmark" class="addfavorites"></ion-icon>
+            </button>
+          </ion-badge>
+        </ion-item>
+      </ion-list><!-- fin favorites -->
+
+    </div><!-- fin  ngSwitch promotion -->
+  </ion-content><!-- fin content footer -->
+</ion-pullup>

@@ -1,0 +1,39 @@
+
+.reset-filters {
+  background-color: map_get($colors, font);
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+@each $track, $value in auxiliary-categories() {
+
+  ion-item[track=#{$track}] .dot {
+    height: 10px;
+    display: inline-block;
+    width: 10px;
+    background-color: $value;
+    border-radius: 5px;
+    margin-right: 10px;
+  }
+
+  .toggle-md-secondary .toggle-checked,
+  .toggle-ios-secondary .toggle-checked {
+    background-color: #83bed4;
+  }
+
+  .toggle-md-secondary .toggle-checked .toggle-inner,
+  .toggle-ios-secondary .toggle-checked .toggle-inner {
+    background-color:  map_get($colors, font);
+  }
+
+  .bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
+    color: #ffffff;
+  }
+  .bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #ffffff;
+  }
+
+}

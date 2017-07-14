@@ -1,0 +1,21 @@
+page-setting {
+
+  img{
+    max-width: 140px;
+    border-radius: 50%;
+  }
+
+  .text-ios-primary {
+    color: #ffffff;
+    font-weight: 500;
+  }
+
+  .range-md-secondary .range-bar-active, .range-md-secondary .range-knob, .range-md-secondary
+  .range-pin, .range-md-secondary .range-pin::before,
+  .range-ios-secondary .range-bar-active, .range-ios-secondary .range-knob, .range-ios-secondary
+  .range-pin, .range-ios-secondary .range-pin::before{
+
+    background: #36687b;
+  }
+
+}

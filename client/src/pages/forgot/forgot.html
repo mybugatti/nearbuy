@@ -1,0 +1,44 @@
+<!--
+  Generated template for the Forgot page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title></ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+<ion-content padding>
+
+  <div class="header-title-forgot">
+    <h1>Réinitialisez votre mot de passe</h1>
+  </div>
+
+  <!-- formulaire inscription -->
+  <form [formGroup]="forgotForm" (ngSubmit)="onSubmit(forgotForm.value)">
+
+    <!-- email -->
+    <ion-item [class.error]="!email.valid && email.touched">
+      <ion-label floating>E-mail</ion-label>
+      <ion-input type="email" value="" formControlName="email"></ion-input>
+    </ion-item>
+    <!-- display error message -->
+    <div *ngIf="email.hasError('required') && email.touched"
+         class="error-box">* Ce champs est requis.
+    </div>
+    <div *ngIf="email.hasError('pattern') && email.touched"
+         class="error-box">* Veuillez entrer une adresse email valide.
+    </div>
+
+    <!-- -->
+    <div class="icon-left">
+      <button ion-button type="submit" color="light" class="" [disabled]="!forgotForm.valid">Valider</button>
+    </div>
+
+  </form>
+
+</ion-content>

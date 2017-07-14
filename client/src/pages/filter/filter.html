@@ -1,0 +1,42 @@
+<!--
+  Generated template for the Filter page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons start>
+      <button ion-button (click)="dismiss()">Annuler</button>
+    </ion-buttons>
+
+    <ion-title>
+      Promotion
+    </ion-title>
+
+    <ion-buttons end>
+      <button ion-button (click)="applyFilters()">Filtrer</button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="outer-content">
+
+  <ion-list>
+    <ion-list-header></ion-list-header>
+
+    <ion-item *ngFor="let promotionItem of promotionCategory" [attr.category]="promotionItem.name | lowercase">
+      <span item-left class="dot"></span>
+      <ion-label>{{promotionItem.name}}</ion-label>
+      <ion-toggle [(ngModel)]="promotionItem.isChecked" color="secondary"></ion-toggle>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list>
+    <button ion-button (click)="resetFilters()" detail-none class="reset-filters">
+      Reset
+    </button>
+  </ion-list>
+
+</ion-content>

@@ -1,0 +1,62 @@
+<!--
+  Generated template for the Connexion page.
+
+  See http://ionicframework.com/docs/v2/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header hidden>
+
+  <ion-navbar>
+    <ion-title>connexion</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div class="content-logo">
+    <img src="assets/icon/logo.png" alt="logo">
+    <h1>NearBuy</h1>
+  </div>
+
+  <div class="header-title-connexion">
+    <h1>Connexion</h1>
+  </div>
+  <!-- formulaire connexion -->
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm.value)">
+
+    <!-- username -->
+    <ion-item [class.error]="!username.valid && username.touched">
+      <ion-label floating>Nom d'utilisateur</ion-label>
+      <ion-input type="text" value="" formControlName="username"></ion-input>
+    </ion-item>
+    <!-- display error message -->
+    <div *ngIf="username.hasError('required') && username.touched"
+         class="error-box">* Ce champs est requis.</div>
+
+    <!-- password -->
+    <ion-item [class.error]="!password.valid && password.touched">
+      <ion-label floating>Mot de passe</ion-label>
+      <ion-input type="password" value="" formControlName="password" ></ion-input>
+    </ion-item>
+    <!-- display error message -->
+    <div *ngIf="password.hasError('required') && password.touched"
+         class="error-box">* Ce champs est requis</div>
+    <!-- display error invalide username & password -->
+    <div *ngIf="getError()"
+         class="error-box invalide-box"> Identifiants incorrects</div>
+
+    <!-- champs -->
+    <div class="form-group-connexion">
+      <p>Pas de compte ? <a [navPush]="inscriptionPage"> Inscription</a></p>
+      <p><a [navPush]="forgotPage">  Mot de pass oublié ?</a></p>
+    </div>
+
+    <!-- -->
+    <div class="icon-left">
+      <button ion-button  type="submit" color="light" class="" [disabled]="!loginForm.valid">Connexion</button>
+    </div>
+
+  </form>
+</ion-content>

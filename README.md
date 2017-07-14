@@ -1,15 +1,17 @@
 # NEARBUY PROJECT #
+### IONIC 2 app + Symfony3 API ###
 
-This README would normally document whatever steps are necessary to get your application up and running.
-
+### Party 1 : INSTALLATION IONIC2 ###
 ### Getting Started ###
-First clone the nearbuy_mobile project :
+First clone the nearbuy project :
 
 * cd <DocumentRoot> 
-* git clone nearbuy_mobile
-* cd nearbuy_mobile
-* git submodule init
-* git submodule update
+* git clone nearbuy
+
+### Party 2 : INSTALLATION SYMFONY3 ###
+### Getting Started Client NEARBUY MOBILE ###
+
+* cd client
 
 ### Installing dependencies ###
 Run : 
@@ -18,5 +20,22 @@ Run :
 * `ionic serve` in a terminal from the project root.
 
 Navigate to `http://localhost:8100/`
+
+### Getting Started Server NEARBUY ###
+
+* cd server
+
+### Installing dependencies ###
+Run : 
+
+* `composer install` from the project root.
+* `php bin/console doctrine:database:create`
+* `php bin/console doctrine:schema:update --force`
+* `php bin/console doctrine:fixture:load`
+* `npm install`
+* `npm install -g gassetic`
+* `gassetic build --env=prod`
+
+Navigate to `http://localhost:8000/`
 
 Enjoy!

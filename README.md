@@ -8,7 +8,6 @@ First clone the nearbuy project :
 * cd <DocumentRoot> 
 * git clone nearbuy
 
-### Party 2 : INSTALLATION SYMFONY3 ###
 ### Getting Started Client NEARBUY MOBILE ###
 
 * cd client
@@ -21,6 +20,7 @@ Run :
 
 Navigate to `http://localhost:8100/`
 
+### Party 2 : INSTALLATION SYMFONY3 ###
 ### Getting Started Server NEARBUY ###
 
 * cd server

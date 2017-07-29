@@ -35,6 +35,7 @@ Run :
 * `npm install`
 * `npm install -g gassetic`
 * `gassetic build --env=prod`
+* `php bin/console server:run`
 
 Navigate to `http://localhost:8000/`
 

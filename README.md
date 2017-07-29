@@ -2,6 +2,9 @@
 ### IONIC 2 app + Symfony3 API ###
 
 ### Party 1 : INSTALLATION IONIC2 ###
+```
+Make sure you have Node js installed.
+```
 ### Getting Started ###
 First clone the nearbuy project :
 
